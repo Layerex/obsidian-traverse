@@ -9,7 +9,6 @@ import argparse
 import os
 import re
 
-from itertools import chain
 from glob import iglob
 from typing import Iterable
 
