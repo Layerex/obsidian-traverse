@@ -1,7 +1,5 @@
 make: install
 
-PACKAGE_NAME := obsidian-traverse
-
 clean:
 	rm -rf build dist __pycache__ *.egg-info
 
@@ -15,6 +13,6 @@ upload: dist
 	python3 -m twine upload dist/*
 
 install: dist
-	-pipx uninstall $(PACKAGE_NAME) && pipx install dist/*.whl; [ $$? -eq 127 ] && pip install --force-reinstall --no-deps dist/*.whl
+	-pipx install --force --pip-args='--force-reinstall --no-deps' dist/*.whl; [ $$? -eq 127 ] && pip install --force-reinstall --no-deps dist/*.whl
 
 .PHONY: clean dist upload install
